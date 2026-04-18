@@ -1,6 +1,0 @@
-# Force LF line endings for shell scripts and the skin updater
-.skin-updater/pre-commit        text eol=lf
-.skin-updater/setup-mac-linux.sh text eol=lf
-.skin-updater/skin-updater.js   text eol=lf
-
-.skin-updater/pre-commit text eol=lf
