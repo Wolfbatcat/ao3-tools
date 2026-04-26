@@ -1,29 +1,45 @@
 # ao3-tools
 
-A collection of scripts and reference notes for building AO3 site skins and JavaScript userscripts.
+AO3 Tools is a portable suite for AO3 skin and userscript repositories. Users should run the root BAT launchers, not internal PowerShell scripts.
 
-## AO3 Reference Guide
+## Tools
 
-Distilled notes from AO3's official front-end documentation live in `_scripts/ao3-guide/`.
+### AO3 Dev Guide
 
-### When writing CSS site skins, read:
+Source: `_scripts/ao3-dev-guide/`
 
-- [`_scripts/ao3-guide/css-rules.md`](_scripts/ao3-guide/css-rules.md) — formatting conventions, em units, allowed properties, the `#main` em scale
-- [`_scripts/ao3-guide/class-system.md`](_scripts/ao3-guide/class-system.md) — how AO3 classes are named, combined, and inherited; full class hierarchy
-- [`_scripts/ao3-guide/stylesheet-cascade.md`](_scripts/ao3-guide/stylesheet-cascade.md) — cascade order, where user skins slot in, page view types, page-specific Rails classes
-- [`_scripts/ao3-guide/brand-tokens.md`](_scripts/ao3-guide/brand-tokens.md) — AO3's default colors and fonts (**reference only — not constraints**)
-- [`_scripts/ao3-guide/icons-sprites.md`](_scripts/ao3-guide/icons-sprites.md) — icon sprite coordinates, required-tags layout, and icon size variants *(read when working with icons or required-tags)*
+AI-readable reference docs for AO3 site skins, work skins, and userscripts. Installer copies guide entrypoints to `docs/ao3/` and reference docs to `docs/ao3/reference/` and writes managed AO3 routing blocks to:
 
-### When writing JavaScript userscripts, read:
+- `CLAUDE.md`
+- `AGENTS.md`
+- `.github/copilot-instructions.md`
 
-- [`_scripts/ao3-guide/dom-patterns.md`](_scripts/ao3-guide/dom-patterns.md) — HTML structure and key selectors for all major AO3 patterns (blurbs, meta, stats, comments, regions, etc.)
-- [`_scripts/ao3-guide/class-system.md`](_scripts/ao3-guide/class-system.md) — class names and modifier patterns for reliable DOM targeting
-- [`_scripts/ao3-guide/js-patterns.md`](_scripts/ao3-guide/js-patterns.md) — JS-managed state classes, dropdown/filter/modal hooks, widget classes, and userscript patterns
+The guide uses section `Type:` labels:
 
-### Notes on color and visual design
+- `HARD RULE`: enforced by AO3 sanitizer, parser, runtime, or config.
+- `BASELINE`: current AO3 defaults; reference points, not constraints.
+- `RECOMMENDATION`: safer practice, not the only valid path.
+- `REFERENCE`: lookup data.
 
-The user (skin maker) sets their own color palette and font choices. Do not enforce or default to AO3's brand colors. `brand-tokens.md` documents what AO3 ships with so you can reference or deliberately override specific values — nothing more.
+### Skin Timestamp Updater
 
-## Scripts
+Source: `_scripts/skin-timestamp-updater/`
 
-- [`_scripts/copy-ao3-guide.bat`](_scripts/copy-ao3-guide.bat) — copies `_scripts/ao3-guide/` into a target repo's `docs/ao3/` folder
+Optional skin-repo automation. It installs a managed Git pre-commit hook block and updates staged CSS files containing `Updated:`. It skips examples/templates and never touches `.js` userscripts.
+
+Git is required for automatic timestamp updates. Node is not required.
+
+## Installer UX
+
+- `Install AO3 Tools.bat`: double-click installer with folder picker and project type choice.
+- `Uninstall AO3 Tools.bat`: double-click uninstaller with folder picker and confirmation.
+- `_scripts/install-ao3-tools.ps1` and `_scripts/uninstall-ao3-tools.ps1` are internal implementation scripts.
+
+## Maintenance Notes
+
+- Keep user-facing docs focused on the BAT launcher flow.
+- Keep install/update/uninstall idempotent.`r`n- Rerunning the installer on a repo with `.ao3-tools/install-manifest.json` is the update path.
+- Preserve user content outside managed blocks.
+- Never delete user-created CSS or JavaScript files during uninstall.
+- Update `docs/ao3/agent-routing.md` guidance whenever installer behavior changes.
+

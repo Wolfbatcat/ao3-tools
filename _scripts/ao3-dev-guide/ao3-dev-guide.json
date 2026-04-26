@@ -1,0 +1,163 @@
+{
+  "name": "ao3-dev-guide",
+  "version": 1,
+  "ruleTypes": {
+    "HARD RULE": "Enforced by AO3 sanitizer, parser, runtime, or config.",
+    "BASELINE": "Current AO3 default style, DOM, class, or behavior; useful to match or override.",
+    "RECOMMENDATION": "Safer authoring or userscript practice; valid alternatives may exist.",
+    "REFERENCE": "Lookup data such as tokens, sprite coordinates, constants, selectors, or routing notes."
+  },
+  "docs": [
+    {
+      "path": "README.md",
+      "audience": [
+        "all"
+      ],
+      "types": [
+        "REFERENCE",
+        "RECOMMENDATION"
+      ],
+      "readWhen": "Orienting to guide purpose, deployment, or choosing which docs to load."
+    },
+    {
+      "path": "reference/css-rules.md",
+      "audience": [
+        "skin",
+        "work-skin"
+      ],
+      "types": [
+        "HARD RULE",
+        "BASELINE",
+        "RECOMMENDATION"
+      ],
+      "readWhen": "Before writing AO3 CSS, validating sanitizer compatibility, sizing with ems, using variables, or debugging stripped CSS.",
+      "sections": [
+        {
+          "anchor": "#skin-system---allowed-css",
+          "types": [
+            "HARD RULE"
+          ],
+          "readWhen": "Checking allowed CSS properties and values."
+        },
+        {
+          "anchor": "#skin-parser-quirks",
+          "types": [
+            "HARD RULE"
+          ],
+          "readWhen": "Debugging duplicate declarations, font shorthand, or parser behavior."
+        },
+        {
+          "anchor": "#base-element-defaults-02-elementscss",
+          "types": [
+            "BASELINE"
+          ],
+          "readWhen": "Matching or overriding AO3 defaults."
+        }
+      ]
+    },
+    {
+      "path": "reference/brand-tokens.md",
+      "audience": [
+        "skin",
+        "work-skin"
+      ],
+      "types": [
+        "BASELINE",
+        "REFERENCE"
+      ],
+      "readWhen": "Looking up AO3 default colors, fonts, button states, or visual tokens. These are not constraints."
+    },
+    {
+      "path": "reference/class-system.md",
+      "audience": [
+        "skin",
+        "userscript",
+        "work-skin"
+      ],
+      "types": [
+        "REFERENCE",
+        "BASELINE",
+        "RECOMMENDATION"
+      ],
+      "readWhen": "Choosing selectors, understanding AO3 class vocabulary, or detecting page/state classes."
+    },
+    {
+      "path": "reference/stylesheet-cascade.md",
+      "audience": [
+        "skin",
+        "userscript"
+      ],
+      "types": [
+        "HARD RULE",
+        "BASELINE",
+        "RECOMMENDATION",
+        "REFERENCE"
+      ],
+      "readWhen": "Reasoning about cascade order, user skin placement, z-index, breakpoints, or responsive overrides."
+    },
+    {
+      "path": "reference/dom-patterns.md",
+      "audience": [
+        "skin",
+        "userscript",
+        "work-skin"
+      ],
+      "types": [
+        "BASELINE",
+        "HARD RULE",
+        "RECOMMENDATION",
+        "REFERENCE"
+      ],
+      "readWhen": "Selecting AO3 DOM nodes, parsing blurbs/meta/comments/forms, or checking AO3 config constants."
+    },
+    {
+      "path": "reference/js-patterns.md",
+      "audience": [
+        "userscript"
+      ],
+      "types": [
+        "BASELINE",
+        "RECOMMENDATION",
+        "REFERENCE"
+      ],
+      "readWhen": "Detecting AO3 JS-managed state classes, dropdowns, filter panels, modals, widgets, or validation state."
+    },
+    {
+      "path": "reference/js-api.md",
+      "audience": [
+        "userscript"
+      ],
+      "types": [
+        "HARD RULE",
+        "RECOMMENDATION",
+        "REFERENCE"
+      ],
+      "readWhen": "Calling AO3 modal APIs, hooking Rails AJAX events, using global functions, or waiting for CSRF."
+    },
+    {
+      "path": "reference/icons-sprites.md",
+      "audience": [
+        "skin",
+        "userscript"
+      ],
+      "types": [
+        "BASELINE",
+        "RECOMMENDATION",
+        "REFERENCE"
+      ],
+      "readWhen": "Working with required-tags icons, sprite coordinates, bookmark/comment icons, or icon replacement."
+    },
+    {
+      "path": "reference/work-skin-classes.md",
+      "audience": [
+        "work-skin"
+      ],
+      "types": [
+        "HARD RULE",
+        "RECOMMENDATION",
+        "REFERENCE"
+      ],
+      "readWhen": "Using built-in AO3 work skin utility classes or scoping work skin CSS to #workskin."
+    }
+  ]
+}
